@@ -182,6 +182,10 @@ fieldset{border:0;padding:0;margin:0}
 .cases input{width:auto;accent-color:var(--sarcelle-fonce)}
 .cases label:has(input:checked){border-color:var(--sarcelle-fonce);background:var(--ecume)}
 .form-bas{margin-top:1.4rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+.requis{color:#B3261E;font-weight:700}
+.mention-requis{font-size:.9rem;color:var(--gris);margin:0 0 1rem}
+[hidden]{display:none!important}
+input:user-invalid,select:user-invalid{border-color:#B3261E}
 .form-bas small{color:var(--gris);flex:1;min-width:220px}
 #form-etat{margin-top:1rem;font-weight:600}
 .hp{position:absolute;left:-9999px}
@@ -352,11 +356,14 @@ fieldset{border:0;padding:0;margin:0}
         <input type="hidden" name="subject" value="Nouvelle candidature depuis le site La Drisse">
         <input type="hidden" name="from_name" value="Site La Drisse, recrutement">
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+        <p class="mention-requis">Les champs marqués <span class="requis">*</span> sont obligatoires.</p>
         <div class="champs">
-          <div><label for="nom">Nom et prénom</label><input id="nom" name="nom" required autocomplete="name"></div>
-          <div><label for="email">E-mail</label><input id="email" name="email" type="email" required autocomplete="email"></div>
-          <div><label for="tel">Téléphone</label><input id="tel" name="telephone" type="tel" required autocomplete="tel"></div>
-          <div><label for="commune">Commune</label><input id="commune" name="commune" autocomplete="address-level2"></div>
+          <div><label for="nom">Nom <span class="requis" aria-hidden="true">*</span></label><input id="nom" name="nom" required autocomplete="family-name"></div>
+          <div><label for="prenom">Prénom <span class="requis" aria-hidden="true">*</span></label><input id="prenom" name="prenom" required autocomplete="given-name"></div>
+          <div><label for="email">E-mail <span class="requis" aria-hidden="true">*</span></label><input id="email" name="email" type="email" required autocomplete="email"></div>
+          <div><label for="tel">Téléphone <span class="requis" aria-hidden="true">*</span></label><input id="tel" name="telephone" type="tel" required autocomplete="tel" pattern="[0-9+ .()\-]{10,}" title="Numéro de téléphone (10 chiffres minimum)"></div>
+          <div><label for="cp">Code postal <span class="requis" aria-hidden="true">*</span></label><input id="cp" name="code_postal" required inputmode="numeric" maxlength="5" pattern="[0-9]{5}" title="Code postal à 5 chiffres" autocomplete="postal-code"></div>
+          <div><label for="ville">Ville <span class="requis" aria-hidden="true">*</span></label><input id="ville" name="ville" required list="villes" autocomplete="address-level2" placeholder="Saisissez d'abord le code postal"><datalist id="villes"></datalist></div>
           <div class="plein">
             <label for="poste">Poste visé</label>
             <select id="poste" name="poste"></select>
@@ -460,6 +467,24 @@ form.addEventListener('submit',async e=>{
   }catch(err){etat.style.color='#A33';etat.textContent="La candidature n'est pas partie. Réessayez ou écrivez-nous directement par e-mail.";}
   b.disabled=false;b.textContent='Envoyer ma candidature';
 });
+
+// Code postal : suggestion automatique de la ville (API officielle geo.api.gouv.fr)
+(function(){
+  const cp=document.getElementById('cp'),ville=document.getElementById('ville'),liste=document.getElementById('villes');
+  let dernier='';
+  cp.addEventListener('input',async()=>{
+    cp.value=cp.value.replace(/\D/g,'').slice(0,5);
+    if(cp.value.length<5||cp.value===dernier)return;
+    dernier=cp.value;liste.innerHTML='';
+    try{
+      const r=await fetch('https://geo.api.gouv.fr/communes?codePostal='+cp.value+'&fields=nom&format=json');
+      const communes=(await r.json()).map(c=>c.nom).sort((a,b)=>a.localeCompare(b,'fr'));
+      liste.innerHTML=communes.map(n=>'<option value="'+n.replace(/"/g,'&quot;')+'">').join('');
+      if(communes.length===1){ville.value=communes[0];}
+      else{ville.value='';ville.placeholder=communes.length?'Choisissez parmi '+communes.length+' communes':'Saisissez votre ville';ville.focus();}
+    }catch(e){ville.placeholder='Saisissez votre ville';}
+  });
+})();
 </script>
 </body>
 </html>
