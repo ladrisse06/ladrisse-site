@@ -227,12 +227,52 @@ input:user-invalid,select:user-invalid{border-color:#B3261E}
 .heros-recrut{padding-bottom:0}
 .heros-recrut .wrap{grid-template-columns:1fr;max-width:1160px}
 .heros-recrut h1{max-width:16ch}
-.offres{display:grid;gap:1rem;max-width:860px}
-.offre{background:var(--blanc);border:1px solid var(--brume);border-left:6px solid var(--sarcelle);border-radius:0 var(--rayon) var(--rayon) 0;padding:1.5rem 1.8rem}
-.offre h3{margin-bottom:.4rem}
-.offre .infos{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0 0 .9rem}
-.offre .infos li{background:var(--ecume);border-radius:999px;padding:.2em .8em;font-size:.92rem;font-weight:600;color:var(--marine)}
-.offre p{color:var(--gris)}
+.offres{display:grid;gap:2rem}
+.offre{background:var(--blanc);border:1px solid var(--brume);border-radius:var(--rayon);overflow:hidden;box-shadow:0 1px 0 var(--brume)}
+.offre-tete{background:var(--marine);color:#DCEDEB;padding:2rem 2.2rem 1.8rem}
+.offre-tete .surtitre{margin:0 0 .5rem;font-size:.95rem;font-weight:600;color:var(--chanvre-clair)}
+.offre-tete h3{color:var(--blanc);font-size:clamp(1.6rem,3.2vw,2.2rem);margin:0 0 .7rem;font-variation-settings:"wdth" 80}
+.offre-tete .accroche{color:#C9E1DE;font-size:1.08rem;margin:0 0 1.2rem;max-width:60ch}
+.offre .infos{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0}
+.offre .infos li{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:.3em .9em;font-size:.92rem;font-weight:600;color:var(--blanc)}
+.offre-tete+.corde{border-radius:0;height:6px}
+.offre-corps{display:grid;grid-template-columns:1.25fr .75fr;gap:2.5rem;padding:2rem 2.2rem 2.2rem}
+.offre-corps>*{min-width:0}
+.offre h4{font-size:1.1rem;color:var(--marine);margin:1.6rem 0 .6rem;font-variation-settings:"wdth" 90}
+.offre h4:first-child{margin-top:0}
+.offre p{color:var(--gris);margin:0 0 .6rem}
+.offre ul.puces{list-style:none;padding:0;margin:0}
+.offre ul.puces li{position:relative;padding-left:1.5rem;margin-bottom:.45rem;color:var(--encre)}
+.offre ul.puces li::before{content:"";position:absolute;left:0;top:.6em;width:.6rem;height:.6rem;border-radius:50%;background:var(--sarcelle)}
+.offre .sites{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0}
+.offre .sites li{border:1.5px solid var(--sarcelle);border-radius:999px;padding:.3em .9em;font-weight:600;color:var(--marine)}
+.offre .note-rqth{margin-top:1.6rem;background:var(--ecume);border-left:4px solid var(--chanvre);padding:.9rem 1.1rem;border-radius:0 8px 8px 0;color:var(--encre);font-size:.97rem}
+.journee{list-style:none;margin:0;padding:0;position:relative}
+.journee::before{content:"";position:absolute;left:27px;top:8px;bottom:8px;width:6px;border-radius:3px;background:repeating-linear-gradient(35deg,var(--chanvre) 0 5px,var(--chanvre-clair) 5px 8px,var(--chanvre) 8px 11px)}
+.journee>li{position:relative;padding:0 0 1.4rem 4.6rem}
+.journee>li:last-child{padding-bottom:0}
+.journee .heure{position:absolute;left:0;top:0;width:60px;text-align:center;background:var(--blanc);border:2px solid var(--sarcelle-fonce);border-radius:999px;font-weight:800;font-size:.85rem;color:var(--sarcelle-fonce);padding:.2em 0}
+.journee strong{display:block;color:var(--marine);margin-bottom:.3rem}
+.journee ul.puces li{font-size:.97rem}
+.important{margin-top:1rem;background:#FFF6E5;border-left:4px solid var(--chanvre);padding:.8rem 1rem;border-radius:0 8px 8px 0;font-size:.95rem;color:var(--encre)}
+.offre p.appel{margin-top:1.6rem;font-size:1.12rem;font-weight:700;color:var(--marine);font-variation-settings:"wdth" 90}
+.offre-cote{display:grid;gap:1.2rem;align-content:start}
+.carte-info{background:var(--ecume);border-radius:var(--rayon);padding:1.3rem 1.4rem}
+.carte-info h4{margin-top:0}
+.horaire{border-top:1px solid var(--brume);padding:.7rem 0}
+.horaire:first-of-type{border-top:0;padding-top:0}
+.horaire strong{display:block;color:var(--marine)}
+.horaire span{display:block;color:var(--gris);font-size:.95rem}
+.horaire em{font-style:normal;font-weight:700;color:var(--sarcelle-fonce);font-size:.92rem}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--sarcelle);margin-top:.4rem;padding-top:.7rem;font-weight:700;color:var(--marine)}
+.total b{font-size:1.4rem;font-variation-settings:"wdth" 80}
+.carte-offre{background:var(--marine);color:#DCEDEB}
+.carte-offre h4{color:var(--blanc)}
+.carte-offre dl{margin:0;display:grid;gap:.6rem}
+.carte-offre dt{font-size:.85rem;color:#9FC3BF}
+.carte-offre dd{margin:0;font-weight:650;color:var(--blanc)}
+.offre .btn-postuler{width:100%;text-align:center}
+@media (max-width:820px){.offre-corps{grid-template-columns:1fr;padding:1.6rem}.offre-tete{padding:1.6rem}}
 .aucune{background:var(--blanc);border:1.5px dashed var(--sarcelle);border-radius:var(--rayon);padding:1.8rem;max-width:760px}
 .aucune h3{margin-bottom:.4rem}
 .aucune p{color:var(--gris)}
@@ -299,6 +339,7 @@ input:user-invalid,select:user-invalid{border-color:#B3261E}
   <div class="wrap">
     <div class="intro-section">
       <h2 id="titre-offres">Nos offres d'emploi</h2>
+      <p>Les postes ouverts en ce moment. Aucun ne vous correspond ? La candidature spontanée reste possible.</p>
     </div>
     <div id="liste-offres" class="offres"></div>
   </div>
@@ -428,23 +469,169 @@ input:user-invalid,select:user-invalid{border-color:#B3261E}
    séparées par des virgules. Laissez les crochets vides [] s'il n'y a
    aucune offre : la page propose alors la candidature spontanée.
 
-   Modèle :
-   {
-     titre: "Équipier de collecte",
-     contrat: "CDI",
-     temps: "Temps plein",
-     lieu: "Grasse",
-     description: "Description du poste, missions, profil recherché."
-   },
+   Le plus simple : envoyez le texte de l'annonce à Claude, qui vous
+   renvoie ce fichier à jour. Les champs possibles sont visibles dans
+   l'offre ci-dessous (titre, accroche, contrat, temps, lieu, mission,
+   quotidien, sites, profil, horaires, total, remuneration, avantages, rqth).
    ============================================================ */
-const OFFRES = [];
+const OFFRES = [
+  {
+    titre: "Agent de collecte et de tri H/F",
+    accroche: "Vous avez le permis C et vous aimez la route ? Prenez le volant de nos tournées de collecte : départ à l'aube, retour en début d'après-midi, et un vrai rôle dans le recyclage des déchets du territoire.",
+    contrat: "CDD 12 mois",
+    temps: "Temps plein, 35h par semaine",
+    lieu: "Départ de Grasse",
+    permis: "Permis C obligatoire",
+    mission: "Vous réalisez les collectes de déchets chez nos clients professionnels, dans le respect des règles de sécurité, d'hygiène et de salubrité publique. De la tournée à la pesée, vous assurez la traçabilité de chaque collecte.",
+    journee: [
+      { heure: "6h15", etape: "Prise de poste", points: [
+        "Arrivée en tenue complète, fournie par La Drisse : polo, sweat, pantalon, chaussures de sécurité et casquette",
+        "Vérification du matériel de la journée : sacs, bacs, bons d'enlèvement"
+      ]},
+      { heure: "6h30", etape: "Tournée de collecte", points: [
+        "Collectes chez nos clients selon l'ordre du planning",
+        "Conduite en sécurité et en éco-conduite",
+        "Lien avec le responsable de production en cas d'imprévu : site fermé, problème d'accès, véhicule…"
+      ]},
+      { heure: "Retour", etape: "Tri, pesée et traçabilité", points: [
+        "Déchargement du camion, pesée des bacs et relevé des poids",
+        "Rangement du local et entretien du camion (nettoyage complet le vendredi)",
+        "Remplissage des bons de collecte et de la fiche de temps, validés par le responsable",
+        "Selon les besoins : préparation du camion du lendemain, renfort aux collègues ou collecte supplémentaire"
+      ]}
+    ],
+    securite: "Casque obligatoire en collecte, casque et gilet obligatoires dès l'entrée en déchetterie : votre sécurité passe avant tout. La récupération d'objets en déchetterie n'est pas autorisée.",
+    profil: [
+      "Permis C obligatoire",
+      "Respect strict des consignes de sécurité",
+      "Ponctualité, rigueur et sérieux, notamment sur les documents de collecte",
+      "Esprit d'équipe"
+    ],
+    horaires: [
+      { site: "Du lundi au vendredi", detail: ["De 6h15 à 13h30"], duree: "7h par jour" },
+      { site: "Un samedi par mois", detail: ["Par roulement entre les salariés"], duree: "" },
+      { site: "Jours fériés", detail: ["Travaillés, sauf le 25 décembre, le 1er janvier et le 1er mai"], duree: "" }
+    ],
+    total: "35h",
+    remuneration: "Selon profil",
+    avantages: "13e mois + prime annuelle",
+    fourni: "Tenue de travail complète et équipements de sécurité",
+    rqth: true
+  },
+  {
+    titre: "Agent de collecte H/F",
+    accroche: "Pas besoin de permis poids lourd : avec votre permis B, prenez la route de nos tournées de collecte. Départ à l'aube, retour en début d'après-midi, et un métier utile au recyclage des déchets du territoire.",
+    contrat: "CDD 6 mois",
+    temps: "Temps plein, 35h par semaine",
+    lieu: "Départ de Grasse",
+    permis: "Permis B obligatoire",
+    mission: "Vous réalisez les collectes de déchets chez nos clients professionnels, dans le respect des règles de sécurité, d'hygiène et de salubrité publique. De la tournée à la pesée, vous assurez la traçabilité de chaque collecte.",
+    journee: [
+      { heure: "6h15", etape: "Prise de poste", points: [
+        "Tenue complète fournie par La Drisse : polo, sweat, pantalon, chaussures de sécurité et casquette (bonnet, casquette personnelle et sweat à capuche ne sont pas autorisés)",
+        "Vérification du matériel de la journée : sacs, bacs, bons d'enlèvement"
+      ]},
+      { heure: "6h30", etape: "Tournée de collecte", points: [
+        "Collectes chez nos clients selon l'ordre du planning",
+        "Conduite en sécurité et en éco-conduite",
+        "Lien avec le responsable de production en cas d'imprévu : site fermé, problème d'accès, véhicule…"
+      ]},
+      { heure: "Retour", etape: "Pesée et traçabilité", points: [
+        "Déchargement du camion, pesée des bacs et relevé des poids",
+        "Rangement du local et entretien du véhicule (nettoyage complet le vendredi)",
+        "Remplissage des bons de collecte et de la fiche de temps, validés par le responsable",
+        "Selon les besoins : préparation du véhicule du lendemain, renfort aux collègues ou collecte supplémentaire"
+      ]}
+    ],
+    securite: "Casque obligatoire en collecte, casque et gilet obligatoires dès l'entrée en déchetterie : votre sécurité passe avant tout. La récupération d'objets en déchetterie n'est pas autorisée.",
+    profil: [
+      "Permis B obligatoire",
+      "Respect strict des consignes de sécurité",
+      "Ponctualité, rigueur et sérieux, notamment sur les documents de collecte",
+      "Esprit d'équipe"
+    ],
+    horaires: [
+      { site: "Du lundi au vendredi", detail: ["De 6h15 à 13h30"], duree: "7h par jour" },
+      { site: "Un samedi par mois", detail: ["Par roulement entre les salariés"], duree: "" },
+      { site: "Jours fériés", detail: ["Travaillés, sauf le 25 décembre, le 1er janvier et le 1er mai"], duree: "" }
+    ],
+    total: "35h",
+    remuneration: "Selon profil",
+    avantages: "13e mois + prime annuelle",
+    fourni: "Tenue de travail complète et équipements de sécurité",
+    appel: "Vous souhaitez rejoindre une entreprise qui fait la différence tout en développant vos compétences ? Postulez chez La Drisse dès aujourd'hui !",
+    rqth: true
+  },
+  {
+    titre: "Agent de nettoyage polyvalent H/F",
+    accroche: "Vous aimez le travail bien fait et les journées bien organisées ? Rejoignez une équipe coopérative où chacun compte, avec des horaires fixes qui vous laissent toute la journée libre.",
+    contrat: "CDD 12 mois",
+    temps: "Temps partiel, 19h30 par semaine",
+    lieu: "Grasse et Saint-Vallier-de-Thiey",
+    mission: "Vous participez au maintien de la propreté et de l'hygiène des locaux, pour offrir à nos clients un environnement de travail agréable et sécurisé. Vous êtes responsable de l'entretien des espaces et de la bonne utilisation du matériel de nettoyage.",
+    quotidien: [
+      "Nettoyer des locaux de type bureaux, selon les consignes en vigueur",
+      "Utiliser correctement le matériel et les produits de nettoyage",
+      "Vider les poubelles et garder les espaces communs propres"
+    ],
+    sites: ["Campus Grasse", "BLH Saint-Vallier-de-Thiey"],
+    profil: [
+      "Une expérience sur un poste similaire est souhaitée",
+      "Permis B et véhicule obligatoires",
+      "Motivation, ponctualité et sérieux",
+      "Rigueur et sens de l'organisation"
+    ],
+    horaires: [
+      { site: "Campus Grasse", detail: ["Du lundi au vendredi, de 6h00 à 8h00"], duree: "10h / semaine" },
+      { site: "BLH Saint-Vallier-de-Thiey", detail: ["Lundi et mercredi, de 16h20 à 19h20", "Vendredi, de 16h00 à 19h30"], duree: "9h30 / semaine" }
+    ],
+    total: "19h30",
+    remuneration: "Selon profil",
+    avantages: "13e mois + prime éventuelle",
+    rqth: true
+  }
+];
 
 const liste=document.getElementById('liste-offres'), choix=document.getElementById('poste');
 const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 if(OFFRES.length===0){
   liste.innerHTML='<div class="aucune"><h3>Aucune offre en ce moment</h3><p>Nous n\'avons pas de poste ouvert actuellement, mais nos besoins évoluent souvent. Envoyez-nous une candidature spontanée : nous la gardons et vous recontactons dès qu\'un poste correspond à votre profil.</p><a class="btn" href="#candidature">Envoyer une candidature spontanée</a></div>';
 }else{
-  liste.innerHTML=OFFRES.map(o=>`<article class="offre"><h3>${esc(o.titre)}</h3><ul class="infos">${[o.contrat,o.temps,o.lieu].filter(Boolean).map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p>${esc(o.description)}</p><a class="btn secondaire" href="#candidature" data-poste="${esc(o.titre)}">Postuler à cette offre</a></article>`).join('');
+  const puces=a=>(a&&a.length)?'<ul class="puces">'+a.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>':'';
+  liste.innerHTML=OFFRES.map(o=>`
+  <article class="offre">
+    <header class="offre-tete">
+      <p class="surtitre">La Drisse recrute</p>
+      <h3>${esc(o.titre)}</h3>
+      ${o.accroche?`<p class="accroche">${esc(o.accroche)}</p>`:''}
+      <ul class="infos">${[o.contrat,o.temps,o.lieu,o.permis].filter(Boolean).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
+    </header>
+    <div class="corde" role="presentation"></div>
+    <div class="offre-corps">
+      <div>
+        ${o.mission?`<h4>Votre mission</h4><p>${esc(o.mission)}</p>`:''}
+        ${o.description?`<p>${esc(o.description)}</p>`:''}
+        ${o.quotidien?`<h4>Votre quotidien</h4>${puces(o.quotidien)}`:''}
+        ${o.journee?`<h4>Votre journée type</h4><ol class="journee">${o.journee.map(j=>`<li><span class="heure">${esc(j.heure)}</span><strong>${esc(j.etape)}</strong>${puces(j.points)}</li>`).join('')}</ol>`:''}
+        ${o.securite?`<p class="important"><b>Sécurité :</b> ${esc(o.securite)}</p>`:''}
+        ${o.sites?`<h4>Où vous interviendrez</h4><ul class="sites">${o.sites.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>`:''}
+        ${o.profil?`<h4>Votre profil</h4>${puces(o.profil)}`:''}
+        ${o.appel?`<p class="appel">${esc(o.appel)}</p>`:''}
+        ${o.rqth?`<p class="note-rqth">Entreprise adaptée : à compétences égales, les candidatures de personnes reconnues travailleurs handicapés (RQTH) sont prioritaires.</p>`:''}
+      </div>
+      <aside class="offre-cote">
+        ${o.horaires?`<div class="carte-info"><h4>Vos horaires</h4>${o.horaires.map(h=>`<div class="horaire"><strong>${esc(h.site)}</strong>${h.detail.map(d=>`<span>${esc(d)}</span>`).join('')}${h.duree?`<em>${esc(h.duree)}</em>`:''}</div>`).join('')}${o.total?`<div class="total"><span>Total</span><b>${esc(o.total)} / semaine</b></div>`:''}</div>`:''}
+        <div class="carte-info carte-offre"><h4>Ce qu'on vous offre</h4><dl>
+          ${o.contrat?`<div><dt>Contrat</dt><dd>${esc(o.contrat)}${o.temps?', '+esc(o.temps.toLowerCase()):''}</dd></div>`:''}
+          ${o.remuneration?`<div><dt>Rémunération</dt><dd>${esc(o.remuneration)}</dd></div>`:''}
+          ${o.avantages?`<div><dt>Avantages</dt><dd>${esc(o.avantages)}</dd></div>`:''}
+          ${o.fourni?`<div><dt>Fourni par La Drisse</dt><dd>${esc(o.fourni)}</dd></div>`:''}
+          <div><dt>Et aussi</dt><dd>Une coopérative où les salariés peuvent devenir associés</dd></div>
+        </dl></div>
+        <a class="btn btn-postuler" href="#candidature" data-poste="${esc(o.titre)}">Postuler à cette offre</a>
+      </aside>
+    </div>
+  </article>`).join('');
   liste.querySelectorAll('[data-poste]').forEach(a=>a.addEventListener('click',()=>{choix.value=a.dataset.poste}));
 }
 ['Candidature spontanée',...OFFRES.map(o=>o.titre)].forEach(p=>{const op=document.createElement('option');op.textContent=p;choix.appendChild(op)});
